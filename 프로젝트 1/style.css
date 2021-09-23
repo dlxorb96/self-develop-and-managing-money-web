@@ -1,5 +1,5 @@
 :root {
-  --var-nav__bar_margin-bottom: 20px;
+  --var-nav__bar_margin-bottom: 10px;
 }
 
 * {
@@ -14,13 +14,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .container {
   position: relative;
   background-color: rgb(240, 240, 240);
-  width: 300px;
-  height: 500px;
+  /* width: 300px;
+  height: 500px; */
 }
 
 .nav__bar {
@@ -47,61 +48,63 @@ body {
   background-color: pink;
 }
 
+.add_clear_delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add_clear_delete li {
+  margin: 0 5px 2px;
+  list-style: none;
+}
+
+.add_clear_delete li a {
+  text-decoration: none;
+  padding: 0 5px 3px;
+  color: #333;
+  border: 1px solid;
+}
+
+.itemForm {
+  /* display: flex; */
+}
+
+.iteminput {
+  display: inline-block;
+  width: 100px;
+  height: 20px;
+  /* vertical-align: middle; */
+  /* line-height: 20px; */
+}
+
+.itemButton {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.itemButton::before {
+  content: "+";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+}
+
+.content {
+}
+
+/* 
 #plus {
   position: relative;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   border: 1px black solid;
   border-radius: 50%;
   cursor: pointer;
-}
-/* 
-#plus::before {
-  content: "+";
-  position: absolute;
-  right: -10px;
-  top: calc(50% - 7px);
-  width: 40px;
-  height: 40px;
-} */
-
-#plus::before {
-  content: "+";
-  position: absolute;
-  /* width: 100%;
-  height: 100%; */
-  /* line-height: 50%; */
-  /* text-align: center; */
-  /* border-top: 1px solid black; */
-}
-
-/* content: ">";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    line-height: 33px;
-    text-align: center;
-    font-size: 33px;
-    color: #6843d1; */
-
-/* .toggle {
-  background-color: #f5f5f5;
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  right: -20px;
-  top: calc(50% - 20px);
-  border: 5px solid #6843d1;
-  border-radius: 50%;
-}
-.toggle::before {
-  content: ">";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  line-height: 33px;
-  text-align: center;
-  font-size: 33px;
-  color: #6843d1;
 } */
