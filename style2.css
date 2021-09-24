@@ -1,0 +1,38 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 15px 0;
+}
+
+header > .nav_bar_ul {
+  display: flex;
+  list-style: none;
+}
+
+header > .nav_bar_ul > li {
+  margin-left: 18px;
+  padding: 0 5px;
+}
+
+header > .nav_bar_ul > li > a {
+  text-decoration: none;
+  padding: 10px 0;
+  color: #aaa;
+}
+
+header > .nav_bar_ul > li > .clicked {
+  color: #333333;
+}
+
+header > .nav_bar_ul > li > a:hover {
+  color: #333333;
+}
