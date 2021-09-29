@@ -1,0 +1,193 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  color: #333333;
+  /* background-color: #fff */
+  background-color: #f0f0f0;
+}
+
+/* 헤더 */
+
+header {
+  padding: 15px 0;
+  background-color: #ffffff;
+}
+
+header > .navigation-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+header > .navigation-bar > .nav_bar_ul {
+  display: flex;
+  list-style: none;
+}
+
+header > .navigation-bar > .nav_bar_ul > li {
+  margin-left: 18px;
+  padding: 0 5px;
+}
+
+header > .navigation-bar > .nav_bar_ul > li > a {
+  text-decoration: none;
+  padding: 10px 0;
+  color: #aaa;
+}
+
+header > .navigation-bar > .nav_bar_ul > li > .clicked {
+  color: #333333;
+}
+
+header > .navigation-bar > .nav_bar_ul > li > a:hover {
+  color: #333333;
+}
+
+/* body color #fff 
+  header color #ffffff*/
+
+/* body */
+
+.flex_container {
+  display: flex;
+  max-width: 850px;
+  margin: 0 auto;
+  /* display: grid;
+    grid-template-columns: 1fr 3fr; */
+  padding: 30px 0 50px;
+}
+
+/* 왼쪽 바 */
+
+aside {
+  width: 25%;
+}
+
+aside .introduction {
+  position: relative;
+  padding: 20px;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 6%);
+  background-color: #fff;
+  margin-right: 10px;
+}
+
+aside > .introduction > .underbar {
+  width: 100px;
+  height: 1px;
+  background-color: #c7c7c7;
+  margin: 15px 0;
+}
+
+aside > .introduction > .link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+aside > .introduction > .link > li > img {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+  display: inline-block;
+  color: #c7c7c7;
+  cursor: pointer;
+}
+
+aside > .introduction > .link > li > img:hover {
+  color: #333333;
+}
+
+.flex_container > aside > .introduction > img {
+  display: block;
+  margin: 0 auto 30px;
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+  object-fit: cover;
+}
+
+/* section */
+
+.flex_container > section {
+  position: relative;
+  margin-left: 10px;
+  width: 75%;
+}
+
+.flex_container > section > .wrap {
+  position: relative;
+}
+
+.flex_container > section > .wrap > .container {
+  position: relative;
+  padding: 15px;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 6%);
+  background-color: #fff;
+  margin-bottom: 10px;
+}
+
+.flex_container > section > .wrap > .container > .box {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  position: relative;
+  /* flex-basis: auto; */
+}
+
+.flex_container > section > .wrap > .container > .box > .checkBox {
+  border: 1px solid black;
+  /* padding: 10px; */
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-right: 5px;
+  text-align: center;
+  line-height: 20px;
+}
+
+.flex_container > section > .wrap > .container > .box > .textBox {
+  padding: 15px;
+  margin-right: 40px;
+  word-break: break-all;
+}
+
+.flex_container > section > .wrap > .container > .box > i.fas {
+  color: #9a9a9a;
+  position: absolute;
+  right: 1%;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.plus {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  border: 1px solid black;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -50px;
+  cursor: pointer;
+}
+
+.plus::before {
+  content: "+";
+  position: absolute;
+  left: 1px;
+  right: 1px;
+  top: 1px;
+  bottom: 1px;
+  text-align: center;
+  line-height: 15px;
+}
