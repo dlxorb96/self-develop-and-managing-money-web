@@ -191,3 +191,62 @@ aside > .introduction > .link > li > img:hover {
   text-align: center;
   line-height: 15px;
 }
+
+/* making tagBOx in js  */
+
+.tagWrap {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.tagBox {
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid #333333;
+  cursor: pointer;
+}
+
+.tagBox.active {
+  background-color: #c7c7c7;
+}
+
+.inputToDo {
+  width: 500px;
+  height: 20px;
+}
+
+#input_form {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+#input_form > input:nth-child(1) {
+  width: 200px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+#input_form > input:nth-child(2) {
+  width: 30px;
+  height: 20px;
+}
+
+.input_content {
+  text-align: center;
+  font-size: 25px;
+}
+
+.done_click {
+  margin: 0 auto;
+  width: 60px;
+  height: 30px;
+  border: 1px solid black;
+  cursor: pointer;
+  text-align: center;
+}
