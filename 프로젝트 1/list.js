@@ -9,6 +9,7 @@ const inputForm = document.querySelector('#input_form')
 const divHasForm = document.querySelector('.formBox')
 const inputFormInInput = document.querySelector('#input_form_input')
 
+
 const tagBoxZip = ['공부', '운동', '일반', '기타', '+'];
 const list = {
   tag: null,
@@ -20,11 +21,11 @@ function buttonClickEvent(e){
   e.preventDefault();
   if(e.target.textContent === ''){
     e.target.textContent = '✔'
-    $container.style.backgroundColor = 'gray'
+    this.parentNode.parentNode.style.backgroundColor = 'gray'
 
   }else if(e.target.textContent === '✔'){
     e.target.textContent = '';
-    $container.style.backgroundColor = '#fff'
+    this.parentNode.parentNode.style.backgroundColor = '#fff'
   }
 }
 
@@ -58,54 +59,63 @@ function createTagBox(newTagBox){
 }
 
 //태그 클릭 이벤트
+
+let tagclickflag = true;
+
 function tagClickEvent(e){
   e.preventDefault()
+  if(!tagclickflag)return;
   this.classList.toggle('active')
   list.tag = this.textContent
-  createInput()
+  createInput(this.parentNode.parentNode)
+  tagclickflag = false;
 }
 
-// 태그 클릭시 나오는 인풋 이벤트 
+//인풋 만들기
+function createInput(inherited){
+  const $form = document.createElement('form')
+  $form.id = 'input_form'
+  const textInput = document.createElement('input')
+  textInput.id = 'input_form'
+  textInput.type = 'text'
+  textInput.placeholder = '입력하세요'
+  // textInput.maxLength = '150'
+  const buttonInput = document.createElement('input')
+  buttonInput.value = '완료'
+  buttonInput.type = 'submit'
+  $form.append(textInput, buttonInput)
+  inherited.appendChild($form);
+  $form.addEventListener('submit', submitEventInInputForm)
+  return $form
+}
+
+let inputflag = true;
+
+// 인풋 submit 이벤트
 function submitEventInInputForm(e){
   e.preventDefault()
+  if(!inputflag)return;
   const inputValue = this.children[0].value
   this.children[0].value = ''
   list.content = inputValue
   const doneInput = document.createElement('div')
   doneInput.textContent = inputValue
   doneInput.className = 'input_content'
-  // 여기서 다시 건드려야함
   this.parentNode.appendChild(doneInput)
-  const doneClick = document.querySelector('div');
+  const doneClick = document.createElement('div');
   doneClick.className ='done_click'
-  this.parentNode.parentNode.appendChild(doneClick)
+  this.parentNode.appendChild(doneClick)
   doneClick.textContent = '완료'
   doneClick.addEventListener('click', doneClickEvent)
+  inputflag = false;
 }
-
-
-// function submitEventInInputForm(e){
-//   e.preventDefault()
-//   console.log(this)
-//   const inputValue = e.traget.value
-//   inputFormInInput.value = ''
-//   list.content = inputValue
-//   const doneInput = document.createElement('div')
-//   doneInput.textContent = inputValue
-//   doneInput.className = 'input_content'
-//   this.parentNode.parentNode.appendChild(doneInput)
-//   divHasForm.style.display = 'none'
-//   const doneClick = document.querySelector('div');
-//   doneClick.className ='done_click'
-//   this.parentNode.parentNode.appendChild(doneClick)
-//   doneClick.textContent = '완료'
-//   doneClick.addEventListener('click', doneClickEvent)
-// }
 
 // 완료 클릭시 이벤트
 function doneClickEvent(){
-  // this.parentNode.remove()
+  this.parentNode.remove()
   createRealContatiner(list.tag, list.content)
+  inputflag = true;
+  tagclickflag = true;
 }
 
 function createRealContatiner(tag, content){
@@ -123,33 +133,34 @@ function createRealContatiner(tag, content){
   i.className = 'fas fa-ellipsis-h'
   h3.textContent = tag
   p.textContent = content
-  $wrap.appendChild(container);
+  plusButton.parentNode.insertBefore(container, plusButton)
+  // $wrap.appendChild(container);
   container.appendChild(box);
   box.appendChild(checkBox);
   box.appendChild(textBox);
   box.appendChild(i);
   textBox.appendChild(h3)
   textBox.appendChild(p)
+
+  checkBox.addEventListener('click', buttonClickEvent);
   return container;
 }
 
 
-//인풋 만들기
-function createInput(){
-  const $form = document.createElement('form')
-  $form.id = 'input_form'
-  const textInput = document.createElement('input')
-  textInput.id = 'input_form'
-  textInput.type = 'text'
-  textInput.placeholder = '입력하세요'
-  const buttonInput = document.createElement('input')
-  buttonInput.value = '완료'
-  buttonInput.type = 'button'
-  $form.append(textInput, buttonInput)
-  document.body.appendChild($form)
-  $form.addEventListener('submit', submitEventInInputForm)
-  return $form
-}
+
 
 $button.addEventListener('click', buttonClickEvent);
 plusButton.addEventListener('click', plusButtonClickEvent);
+
+// function a(a){
+//   const B = document.createElement('div')
+//   B.className = 'a'
+//   B.style.backgroundColor = 'black;'
+//   a.appendChild(B)
+// }
+
+
+// function test(){
+//   a(document.body)
+// }
+// $wrap.addEventListener('click', test)

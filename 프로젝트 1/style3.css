@@ -123,8 +123,132 @@ aside > .introduction > .link > li > img:hover {
   width: 75%;
 }
 
-.flex_container > section > .container {
-  padding: 20px;
+.flex_container > section > .wrap {
+  position: relative;
+}
+
+.flex_container > section > .wrap > .container {
+  position: relative;
+  padding: 15px;
   box-shadow: 0 0 0 1px rgb(0 0 0 / 6%);
   background-color: #fff;
+  margin-bottom: 10px;
+}
+
+.flex_container > section > .wrap > .container > .box {
+  display: flex;
+  /* flex-shrink: 0; */
+  align-items: center;
+  position: relative;
+  /* flex-basis: auto; */
+}
+
+.flex_container > section > .wrap > .container > .box > .checkBox {
+  border: 1px solid black;
+  min-width: 20px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-right: 5px;
+  text-align: center;
+  line-height: 20px;
+}
+
+.flex_container > section > .wrap > .container > .box > .textBox {
+  padding: 15px;
+  margin-right: 40px;
+  margin-left: 20px;
+  word-break: break-all;
+}
+
+.flex_container > section > .wrap > .container > .box > i.fas {
+  color: #9a9a9a;
+  position: absolute;
+  right: 1%;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.plus {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  border: 1px solid black;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -50px;
+  cursor: pointer;
+}
+
+.plus::before {
+  content: "+";
+  position: absolute;
+  left: 1px;
+  right: 1px;
+  top: 1px;
+  bottom: 1px;
+  text-align: center;
+  line-height: 15px;
+}
+
+/* making tagBOx in js  */
+
+.tagWrap {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.tagBox {
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid #333333;
+  cursor: pointer;
+}
+
+.tagBox.active {
+  background-color: #c7c7c7;
+}
+
+.inputToDo {
+  width: 500px;
+  height: 20px;
+}
+
+#input_form {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+#input_form > input:nth-child(1) {
+  width: 200px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+#input_form > input:nth-child(2) {
+  width: 30px;
+  height: 20px;
+}
+
+.input_content {
+  text-align: center;
+  font-size: 25px;
+  word-break: break-all;
+}
+
+.done_click {
+  margin: 0 auto;
+  width: 60px;
+  height: 30px;
+  border: 1px solid black;
+  cursor: pointer;
+  text-align: center;
 }
