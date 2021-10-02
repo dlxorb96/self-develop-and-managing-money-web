@@ -136,13 +136,10 @@ aside > .introduction > .link > li > img:hover {
 }
 
 .flex_container > section > .wrap > .container > .box {
-  width: 100%;
   display: flex;
-  flex-shrink: 0;
+  /* flex-shrink: 0; */
   align-items: center;
   position: relative;
-  /* background-color: black; */
-  margin-right: -20px;
   /* flex-basis: auto; */
 }
 
@@ -152,7 +149,6 @@ aside > .introduction > .link > li > img:hover {
   width: 20px;
   height: 20px;
   cursor: pointer;
-  margin-left: 5px;
   margin-right: 5px;
   text-align: center;
   line-height: 20px;
@@ -163,11 +159,9 @@ aside > .introduction > .link > li > img:hover {
   margin-right: 40px;
   margin-left: 20px;
   word-break: break-all;
-  /* white-space: pre-wrap; */
 }
 
 .flex_container > section > .wrap > .container > .box > i.fas {
-  /* posi/tion: ; */
   color: #9a9a9a;
   position: absolute;
   right: 1%;
