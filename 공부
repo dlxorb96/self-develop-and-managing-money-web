@@ -1,1 +1,58 @@
+1. css에서 grid와 flex를 사용할 때 주의할 점
+같이 묶이는 아이들의 크기가 불확실하게 늘어나면 같이 늘어나게 된다.
+이를 잘 기억하고, 부모태그를 하나 더 만들어서 묶어서 해결하거나 margin으로 일일이 조절해야한다.
 
+2. img크기를 px단위로 조절한다면 반응형에서 망가질 위협이 있음.
+이를 해결하기 위한 방안은 1. 이미지 가로 세로 길이를 같게하여 %를 준다. 2, 반응형 웹을 만든다.
+
+3. 왼쪽 정중앙에 위치하게 만들기
+position: absolute;
+top: 50%;
+transform: translate(-50%);
+
+4. div안 텍스트 벗어나는 경우
+word-break : break-all;
+white-space : pre-wrap;
+
+5. flex를 썼을 때 width의 비율이 자동으로 줄어드는 경우가 있다.
+이를 해결하는 방안
+1. flex-shrink : 0;을 설정하면 div의 너비는 컨텐츠 내용보다 작아지지 않는다. width도 같이 설정해줘야함.
+2. min-width를 설정한다
+
+6. line-height 를 height만큼 주면 중앙 정렬할 수 있다.
+
+7. appendChild(), prepend(), insertBefore()
+a.appendChild()는 a요소 제일 끝에 삽입된다.
+a.prepend()는 a요소 제일 앞에 삽입된다.
+a.insertBefore(b,c) b는 추가할 요소, 앞으로 이동할 자식요소
+a에는 c의 부모요소가 들어와야 한다.
+
+8. form의 타입에는 button도 있고 submit도 있다.
+
+9. array.flat()
+일차원 배열으로 만들어주는 method
+[1,2,3,4,[5,6,[7,8]]]을 [1,2,3,4,5,6,7,8]으로 만들어준다.
+
+10. array.slice()
+어떤 배열의 begin부터 end까지(end 미포함)에 대한 얕은 복사본은 새로운 배열 객체로 반환한다. 원본은 건드리지 않(a.slice(0,2)는); // [1,2]다.
+const a = [1,2,3,4,5]
+console.log(a.slice(2)); // [3,4,5]
+console.log(a.slice(0,2)); // [1,2]
+console.log(a.slice(1,5)); // [2,3,4,5]
+console.log(a.slice(-2)); // [4,5]
+console.log(a.slice(2, -1); // [3,4]
+
+11. array.splice() // 원본을 바꾼다.
+const a = [1,2,3,4]
+a.splice(0,1) // index 0부터 1개를 자른다
+a = [2,3,4]
+a.splice(0,1,1) // index0부터 1개를 1로 바꾼다
+a= [1,3,4]
+
+12. 우클릭 이벤트: contextmenu
+브라우저 기본 우클릭 시 나오는 창도 preventDefault()로 제어가 가능함.
+
+13. eventLister를 제거할때 td에 있으면 100개를 제거해야함.
+tbody에 걸면 이벤트버블링 현상이 일어나고 이를 활용해서 removeEventLister한번에 가능
+
+14. tr에는 rowIndex를 쓸 수 있음 td에는 cellIndex
