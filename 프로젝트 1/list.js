@@ -29,7 +29,7 @@ function buttonClickEvent(e){
   }
 }
 
-// 플러스 버튼 클릭스 컨테이너 만들기
+// 플러스 버튼 클릭 시 컨테이너 만들기
 function plusButtonClickEvent(e){
   e.preventDefault();
   const createContainer = document.createElement('div')
@@ -65,10 +65,41 @@ let tagclickflag = true;
 function tagClickEvent(e){
   e.preventDefault()
   if(!tagclickflag)return;
+  if(this.textContent === '+'){
+    const plusTag = document.querySelector('.tagBox:last-child')
+    // const $form = document.querySelector('#input_form')
+    // $form.addEventListener('submit', submitEventInInputForm);
+    createForm(plusTag)
+    const newTagName = document.createElement('div')
+    newTagName.className = 'tagBox'
+    tagBoxZip.splice(-1, 0, newTagName)
+    this.parentNode.insertBefore(newTagName, plusTag)
+  }
   this.classList.toggle('active')
   list.tag = this.textContent
   createInput(this.parentNode.parentNode)
   tagclickflag = false;
+}
+
+//plusTag 눌렀을 때 input포함한 form 만들기
+function createForm(tagBox){
+  const $form = document.createElement('form');
+  const inputTypeText = document.createElement('input');
+  const inputTypeSubmit = document.createElement('input');
+  inputTypeText.type = 'text';
+  inputTypeText.placeholder = '입력';
+  inputTypeText.id = 'inputTypeText';
+  inputTypeSubmit.type = 'submit'
+  inputTypeSubmit.id = 'inputTypeSubmit'
+  $form.appendChild(inputTypeText)
+  $form.appendChild(inputTypeSubmit)
+  tagBox.parentNode.insertBefore($form,tagBox)
+  $form.addEventListener('submit', formSubmitEvent)
+  return $form;
+}
+
+function formSubmitEvent(e){
+  e.preventDefault();
 }
 
 //인풋 만들기
@@ -151,16 +182,3 @@ function createRealContatiner(tag, content){
 
 $button.addEventListener('click', buttonClickEvent);
 plusButton.addEventListener('click', plusButtonClickEvent);
-
-// function a(a){
-//   const B = document.createElement('div')
-//   B.className = 'a'
-//   B.style.backgroundColor = 'black;'
-//   a.appendChild(B)
-// }
-
-
-// function test(){
-//   a(document.body)
-// }
-// $wrap.addEventListener('click', test)
