@@ -91,18 +91,17 @@ aside > .introduction > .link {
   display: flex;
   align-items: center;
   justify-content: center;
+  list-style: none;
 }
 
-aside > .introduction > .link > li > img {
-  width: 20px;
-  height: 20px;
-  object-fit: cover;
-  display: inline-block;
+aside > .introduction > .link > li {
+  font-size: 18px;
+  margin: 3px;
   color: #c7c7c7;
   cursor: pointer;
 }
 
-aside > .introduction > .link > li > img:hover {
+aside > .introduction > .link > li:hover {
   color: #333333;
 }
 
